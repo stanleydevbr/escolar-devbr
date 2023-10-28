@@ -1,0 +1,49 @@
+﻿using DevBr.Core.eSocial.Events;
+using DevBr.Core.eSocial.Interfaces.Roots;
+using System.Xml.Linq;
+
+namespace DevBr.Core.eSocial.Eventos.NaoPeriodicos.S3000
+{
+    public class EvtExclusao : IdeEvento<EvtExclusao>, IeSocialAggregate
+    {
+        public IdeEmpregador? IdeEmpregador { get; set; }
+        public InfoExclusao? InfoExclusao { get; set; }
+
+        public EvtExclusao(uint tpAmb, uint procEmi, uint verProc, string evento, string version) : base(tpAmb, procEmi, verProc, evento, version)
+        {
+        }
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
+        }
+
+        public override bool EhValido()
+        {
+            ValidationResult = Validate(this);
+            return ValidationResult.IsValid;
+        }
+
+        public XDocument GetXmlDocument()
+        {
+
+            XDocument doc = new XDocument(
+                new XDeclaration("1.0", "UTF-8", "no"),
+                new XElement(ns + "eSocial",
+                    new XAttribute("xmlns", ns),
+                        GetXmlElements(ns)));
+            return doc;
+
+        }
+
+        protected override XElement? GetXmlElements(XNamespace ns)
+        {
+
+            XElement element = new XElement(ns + nameof(EvtExclusao));
+            element.Add(IdeEmpregador?.GetXmlElements(ns));
+            element.Add(InfoExclusao?.GetXmlElements(ns));
+            return element;
+
+        }
+    }
+}

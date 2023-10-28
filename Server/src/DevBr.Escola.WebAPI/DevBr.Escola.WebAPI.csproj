@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GenerateDocumentationFile>False</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="Swagger\custom.css" />
+	  <Content Include="Swagger\index.html" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>		
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\DevBr.Core.API\DevBr.Core.API.csproj" />
+		<ProjectReference Include="..\DevBr.Escola.Aplicacao\DevBr.Escola.Aplicacao.csproj" />
+		<ProjectReference Include="..\DevBr.Escola.Dominio\DevBr.Escola.Dominio.csproj" />
+		<ProjectReference Include="..\DevBr.Escola.Infra.CrossCutting.AutoMapper\DevBr.Escola.Infra.CrossCutting.AutoMapper.csproj" />
+		<ProjectReference Include="..\DevBr.Escola.Infra.CrossCutting.IoC\DevBr.Escola.Infra.CrossCutting.IoC.csproj" />
+		<ProjectReference Include="..\DevBr.Identidade.API\DevBr.Identidade.API.csproj" />
+	</ItemGroup>
+
+</Project>

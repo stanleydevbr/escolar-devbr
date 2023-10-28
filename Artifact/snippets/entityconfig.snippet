@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2019/CodeSnippet">
+<CodeSnippet Format="1.0.0">
+	<Header>
+		<Title>Configuracao Entidade Repository</Title>
+		<Author>Stanley Dias Paulo</Author>
+		<Description>Trecho de configuracao Entidade Repository</Description>
+		<Shortcut>entityconfig</Shortcut>
+	</Header>  
+	<Snippet>
+	  <Declarations>
+		<Literal>
+		  <ID>nometabela</ID>
+		  <ToolTip>Informe o nome da tabela</ToolTip>
+		  <Default>nometabela</Default>
+		</Literal>
+	  </Declarations>	
+	  <Code Language="CSharp">
+		<![CDATA[
+            builder.ToTable("$nometabela$");
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.DataCriacao)
+                .IsRequired()
+                .HasColumnType("DateTime");
+				
+            builder.Property(x => x.UsuarioCriacao)
+                .IsRequired()
+                .HasMaxLength(40);
+            
+            builder.Property(x => x.DataAlteracao)
+				.HasColumnType("DateTime");
+
+            builder.Property(x => x.UsuarioAlteracao)
+                .HasMaxLength(40);
+
+            builder.Ignore(x => x.ValidationResult);	
+		]]>
+	  </Code>
+	</Snippet>         
+  </CodeSnippet>
+</CodeSnippets>

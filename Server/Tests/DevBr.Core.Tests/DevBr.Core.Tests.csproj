@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\DevBr.Core.eSocial\DevBr.Core.eSocial.csproj" />
+    <ProjectReference Include="..\..\src\DevBr.Core.Tools\DevBr.Core.Tools.csproj" />
+    <ProjectReference Include="..\..\src\DevBr.Core\DevBr.Core.csproj" />
+  </ItemGroup>
+
+</Project>

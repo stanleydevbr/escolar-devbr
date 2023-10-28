@@ -1,0 +1,1849 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Escolar API 1.0",
+      "description": "Esta API faz parte do projeto Gestão Escolar.",
+      "contact": {
+        "name": "Stanley Dias Paulo",
+        "email": "stanley.dias.paulo@gmail.com"
+      },
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      },
+      "version": "v1"
+    },
+    "paths": {
+      "/api/Aluno/Adicionar": {
+        "post": {
+          "tags": [
+            "Aluno"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlunoViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlunoViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlunoViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Aluno/Editar": {
+        "put": {
+          "tags": [
+            "Aluno"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlunoViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlunoViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlunoViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Aluno/Excluir/{id}": {
+        "delete": {
+          "tags": [
+            "Aluno"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Aluno/Consultar/{id}": {
+        "get": {
+          "tags": [
+            "Aluno"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Aluno/Listar": {
+        "get": {
+          "tags": [
+            "Aluno"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Aluno/ListarComFiltro": {
+        "get": {
+          "tags": [
+            "Aluno"
+          ],
+          "parameters": [
+            {
+              "name": "Description",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Row",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "NumberItem",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "Ordering.Property",
+              "in": "query",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "name": "Ordering.Type",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/identidade/nova-conta": {
+        "post": {
+          "tags": [
+            "Auth"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioRegistro"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioRegistro"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioRegistro"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/identidade/autenticar": {
+        "post": {
+          "tags": [
+            "Auth"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioLogin"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioLogin"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioLogin"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/identidade/refresh-token": {
+        "post": {
+          "tags": [
+            "Auth"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Curso/Adicionar": {
+        "post": {
+          "tags": [
+            "Curso"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CursoViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CursoViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CursoViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Curso/Editar": {
+        "put": {
+          "tags": [
+            "Curso"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CursoViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CursoViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CursoViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Curso/Excluir/{id}": {
+        "delete": {
+          "tags": [
+            "Curso"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Curso/Consultar/{id}": {
+        "get": {
+          "tags": [
+            "Curso"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Curso/Listar": {
+        "get": {
+          "tags": [
+            "Curso"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Curso/ListarComFiltro": {
+        "get": {
+          "tags": [
+            "Curso"
+          ],
+          "parameters": [
+            {
+              "name": "Description",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Row",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "NumberItem",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "Ordering.Property",
+              "in": "query",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "name": "Ordering.Type",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Disciplina/Adicionar": {
+        "post": {
+          "tags": [
+            "Disciplina"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplinaViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplinaViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplinaViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Disciplina/Editar": {
+        "put": {
+          "tags": [
+            "Disciplina"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplinaViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplinaViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplinaViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Disciplina/Excluir/{id}": {
+        "delete": {
+          "tags": [
+            "Disciplina"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Disciplina/Consultar/{id}": {
+        "get": {
+          "tags": [
+            "Disciplina"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Disciplina/Listar": {
+        "get": {
+          "tags": [
+            "Disciplina"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Disciplina/ListarComFiltro": {
+        "get": {
+          "tags": [
+            "Disciplina"
+          ],
+          "parameters": [
+            {
+              "name": "Description",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Row",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "NumberItem",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "Ordering.Property",
+              "in": "query",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "name": "Ordering.Type",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Empresa/Adicionar": {
+        "post": {
+          "tags": [
+            "Empresa"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Empresa/Editar": {
+        "put": {
+          "tags": [
+            "Empresa"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Empresa/Excluir/{id}": {
+        "delete": {
+          "tags": [
+            "Empresa"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Empresa/Consultar/{id}": {
+        "get": {
+          "tags": [
+            "Empresa"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Empresa/Listar": {
+        "get": {
+          "tags": [
+            "Empresa"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Empresa/ListarComFiltro": {
+        "get": {
+          "tags": [
+            "Empresa"
+          ],
+          "parameters": [
+            {
+              "name": "Description",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Row",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "NumberItem",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "Ordering.Property",
+              "in": "query",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "name": "Ordering.Type",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Funcionario/Adicionar": {
+        "post": {
+          "tags": [
+            "Funcionario"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FuncionarioViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FuncionarioViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FuncionarioViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Funcionario/Editar": {
+        "put": {
+          "tags": [
+            "Funcionario"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FuncionarioViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FuncionarioViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FuncionarioViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Funcionario/Excluir/{id}": {
+        "delete": {
+          "tags": [
+            "Funcionario"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Funcionario/Consultar/{id}": {
+        "get": {
+          "tags": [
+            "Funcionario"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Funcionario/Listar": {
+        "get": {
+          "tags": [
+            "Funcionario"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Funcionario/ListarComFiltro": {
+        "get": {
+          "tags": [
+            "Funcionario"
+          ],
+          "parameters": [
+            {
+              "name": "Description",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Row",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "NumberItem",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "Ordering.Property",
+              "in": "query",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "name": "Ordering.Type",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Matricula/Adicionar": {
+        "post": {
+          "tags": [
+            "Matricula"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatriculaViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatriculaViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatriculaViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Matricula/Editar": {
+        "put": {
+          "tags": [
+            "Matricula"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatriculaViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatriculaViewModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatriculaViewModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Matricula/Excluir/{id}": {
+        "delete": {
+          "tags": [
+            "Matricula"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Matricula/Consultar/{id}": {
+        "get": {
+          "tags": [
+            "Matricula"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Matricula/Listar": {
+        "get": {
+          "tags": [
+            "Matricula"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Matricula/ListarComFiltro": {
+        "get": {
+          "tags": [
+            "Matricula"
+          ],
+          "parameters": [
+            {
+              "name": "Description",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Row",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "NumberItem",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "Ordering.Property",
+              "in": "query",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "name": "Ordering.Type",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "AlunoViewModel": {
+          "type": "object",
+          "properties": {
+            "inconsistencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "usuarioCriacao": {
+              "type": "string",
+              "nullable": true
+            },
+            "usuarioAlteracao": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataCriacao": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataAlteracao": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "matriculaId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nome": {
+              "type": "string",
+              "nullable": true
+            },
+            "sobreNome": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataNascimento": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "genero": {
+              "type": "string",
+              "nullable": true
+            },
+            "identidade": {
+              "type": "string",
+              "nullable": true
+            },
+            "cpf": {
+              "type": "string",
+              "nullable": true
+            },
+            "nomeDoPai": {
+              "type": "string",
+              "nullable": true
+            },
+            "nomeDaMae": {
+              "type": "string",
+              "nullable": true
+            },
+            "telefone": {
+              "type": "string",
+              "nullable": true
+            },
+            "celular": {
+              "type": "string",
+              "nullable": true
+            },
+            "email": {
+              "type": "string",
+              "nullable": true
+            },
+            "escolaOrigem": {
+              "type": "string",
+              "nullable": true
+            },
+            "enderecoId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "fichaMedicaId": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "additionalProperties": false
+        },
+        "AtividadeViewModel": {
+          "type": "object",
+          "properties": {
+            "inconsistencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "usuarioCriacao": {
+              "type": "string",
+              "nullable": true
+            },
+            "usuarioAlteracao": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataCriacao": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataAlteracao": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "descricao": {
+              "type": "string",
+              "nullable": true
+            },
+            "frequencia": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "CargoViewModel": {
+          "type": "object",
+          "properties": {
+            "inconsistencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "usuarioCriacao": {
+              "type": "string",
+              "nullable": true
+            },
+            "usuarioAlteracao": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataCriacao": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataAlteracao": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "descricao": {
+              "type": "string",
+              "nullable": true
+            },
+            "cbo": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "CursoViewModel": {
+          "type": "object",
+          "properties": {
+            "inconsistencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "usuarioCriacao": {
+              "type": "string",
+              "nullable": true
+            },
+            "usuarioAlteracao": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataCriacao": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataAlteracao": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "nome": {
+              "type": "string",
+              "nullable": true
+            },
+            "disciplinas": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DisciplinaViewModel"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "DisciplinaViewModel": {
+          "type": "object",
+          "properties": {
+            "inconsistencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "usuarioCriacao": {
+              "type": "string",
+              "nullable": true
+            },
+            "usuarioAlteracao": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataCriacao": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataAlteracao": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "codigo": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "nome": {
+              "type": "string",
+              "nullable": true
+            },
+            "media": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "EmpresaViewModel": {
+          "type": "object",
+          "properties": {
+            "inconsistencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "usuarioCriacao": {
+              "type": "string",
+              "nullable": true
+            },
+            "usuarioAlteracao": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataCriacao": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataAlteracao": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "nome": {
+              "type": "string",
+              "nullable": true
+            },
+            "cnpj": {
+              "type": "string",
+              "nullable": true
+            },
+            "telefone": {
+              "type": "string",
+              "nullable": true
+            },
+            "celular": {
+              "type": "string",
+              "nullable": true
+            },
+            "email": {
+              "type": "string",
+              "nullable": true
+            },
+            "logradouro": {
+              "type": "string",
+              "nullable": true
+            },
+            "complemento": {
+              "type": "string",
+              "nullable": true
+            },
+            "bairro": {
+              "type": "string",
+              "nullable": true
+            },
+            "cidade": {
+              "type": "string",
+              "nullable": true
+            },
+            "estado": {
+              "type": "string",
+              "nullable": true
+            },
+            "cep": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "FuncionarioViewModel": {
+          "type": "object",
+          "properties": {
+            "inconsistencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "usuarioCriacao": {
+              "type": "string",
+              "nullable": true
+            },
+            "usuarioAlteracao": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataCriacao": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataAlteracao": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "nome": {
+              "type": "string",
+              "nullable": true
+            },
+            "sobreNome": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataNascimento": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "telefone": {
+              "type": "string",
+              "nullable": true
+            },
+            "celular": {
+              "type": "string",
+              "nullable": true
+            },
+            "email": {
+              "type": "string",
+              "nullable": true
+            },
+            "identidade": {
+              "type": "string",
+              "nullable": true
+            },
+            "cpf": {
+              "type": "string",
+              "nullable": true
+            },
+            "salario": {
+              "type": "number",
+              "format": "double"
+            },
+            "cargo": {
+              "$ref": "#/components/schemas/CargoViewModel"
+            },
+            "atividades": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AtividadeViewModel"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "MatriculaViewModel": {
+          "type": "object",
+          "properties": {
+            "inconsistencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "usuarioCriacao": {
+              "type": "string",
+              "nullable": true
+            },
+            "usuarioAlteracao": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataCriacao": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataAlteracao": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "codigo": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "periodos": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PeriodoViewModel"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "PeriodoViewModel": {
+          "type": "object",
+          "properties": {
+            "inconsistencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "usuarioCriacao": {
+              "type": "string",
+              "nullable": true
+            },
+            "usuarioAlteracao": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataCriacao": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataAlteracao": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "turmas": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/TurmaViewModel"
+              },
+              "nullable": true
+            },
+            "anoLetivo": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "inicioMatricula": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "terminoMatricula": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "inicioAnoLetivo": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "terminoAnoLetivo": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "additionalProperties": false
+        },
+        "TurmaViewModel": {
+          "type": "object",
+          "properties": {
+            "inconsistencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "usuarioCriacao": {
+              "type": "string",
+              "nullable": true
+            },
+            "usuarioAlteracao": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataCriacao": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataAlteracao": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "descricao": {
+              "type": "string",
+              "nullable": true
+            },
+            "turno": {
+              "$ref": "#/components/schemas/Turno"
+            },
+            "cursoId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "salaId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "alunos": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AlunoViewModel"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Turno": {
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "type": "integer",
+          "format": "int32"
+        },
+        "UsuarioLogin": {
+          "required": [
+            "email",
+            "senha"
+          ],
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "senha": {
+              "maxLength": 100,
+              "minLength": 6,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "UsuarioRegistro": {
+          "required": [
+            "cpf",
+            "email",
+            "nome",
+            "senha"
+          ],
+          "type": "object",
+          "properties": {
+            "inconsistencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "usuarioCriacao": {
+              "type": "string",
+              "nullable": true
+            },
+            "usuarioAlteracao": {
+              "type": "string",
+              "nullable": true
+            },
+            "dataCriacao": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataAlteracao": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "nome": {
+              "type": "string"
+            },
+            "cpf": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "senha": {
+              "maxLength": 100,
+              "minLength": 6,
+              "type": "string"
+            },
+            "senhaConfirmacao": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "securitySchemes": {
+        "Bearer": {
+          "type": "apiKey",
+          "description": "Insira o token JWT desta maneira: Bearer {seu token}",
+          "name": "Authorization",
+          "in": "header"
+        }
+      }
+    },
+    "security": [
+      {
+        "Bearer": [ ]
+      }
+    ]
+  }

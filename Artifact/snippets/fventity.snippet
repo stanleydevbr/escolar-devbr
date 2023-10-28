@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2019/CodeSnippet">
+<CodeSnippet Format="1.0.0">
+	<Header>
+		<Title>Validação Fluent</Title>
+		<Author>Stanley Dias Paulo</Author>
+		<Description>Trecho inicial de validação de entidades</Description>
+		<Shortcut>fventity</Shortcut>
+	</Header>  
+	<Snippet>
+	  <Code Language="CSharp">
+		<![CDATA[
+				RuleFor(x => x.DataCriacao)
+					.NotEmpty()
+					.WithMessage("A data de cadatro precisa ser informada");
+
+				RuleFor(x => x.UsuarioCriacao)
+					.NotEmpty()
+					.WithMessage("O usuário de cadastro precisa ser informado");
+
+				ValidationResult = Validate(this);
+
+				return ValidationResult.IsValid;	
+		]]>
+	  </Code>
+	  <Declarations>
+		<Literal>
+		  <ToolTip>Treco inicila de validação fluent para entidades</ToolTip>
+		</Literal>
+	  </Declarations>
+	</Snippet>         
+  </CodeSnippet>
+</CodeSnippets>

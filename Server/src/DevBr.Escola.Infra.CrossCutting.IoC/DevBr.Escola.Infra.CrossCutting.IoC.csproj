@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DevBr.Core.API\DevBr.Core.API.csproj" />
+    <ProjectReference Include="..\DevBr.Escola.Aplicacao\DevBr.Escola.Aplicacao.csproj" />
+    <ProjectReference Include="..\DevBr.Escola.Infra.Data\DevBr.Escola.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
